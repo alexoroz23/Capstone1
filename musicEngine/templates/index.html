@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Music Recommendation Engine</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Welcome to Music Recommendation Engine!</h1>
+    </header>
+    <main>
+        <h2>Discover new music based on your preferences</h2>
+        <form action="{{ url_for('recommendations') }}" method="POST">
+            <label for="genre">Choose a genre:</label>
+            <select name="genre" id="genre">
+                <option value="rock">Rock</option>
+                <option value="pop">Pop</option>
+                <option value="hip-hop">Hip Hop</option>
+            </select>
+            <input type="submit" value="Get Recommendations">
+        </form>
+
+        <h2>Login</h2>
+        <form action="{{ url_for('login') }}" method="POST">
+            <label for="username">Username:</label>
+            <input type="text" name="username" id="username" required>
+            <label for="password">Password:</label>
+            <input type="password" name="password" id="password" required>
+            <input type="submit" value="Login">
+        </form>
+    </main>
+</body>
+</html>
