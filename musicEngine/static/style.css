@@ -1,0 +1,165 @@
+/* Global Styles */
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f5f5f5;
+  color: #333;
+}
+
+.container {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Header */
+
+header {
+  background-color: #333;
+  padding: 20px;
+  color: #fff;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 24px;
+}
+
+/* Forms */
+
+form {
+  margin-bottom: 20px;
+}
+
+form label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+form input[type="text"],
+form input[type="password"],
+form select {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+form input[type="submit"] {
+  padding: 10px 20px;
+  background-color: #333;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+form input[type="submit"]:hover {
+  background-color: #555;
+}
+
+/* Flash Messages */
+
+.flash {
+  margin-bottom: 10px;
+  padding: 10px;
+  border-radius: 4px;
+}
+
+.flash.success {
+  background-color: #dff0d8;
+  color: #3c763d;
+}
+
+.flash.danger {
+  background-color: #f2dede;
+  color: #a94442;
+}
+
+/* Recommendation Page */
+
+.recommendations {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.recommendation {
+  background-color: #fff;
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.recommendation h2 {
+  margin: 0;
+  font-size: 20px;
+  color: #333;
+}
+
+.recommendation p {
+  margin: 10px 0;
+  font-size: 16px;
+  color: #666;
+}
+
+/* Footer */
+
+footer {
+  background-color: #333;
+  padding: 20px;
+  color: #fff;
+  text-align: center;
+}
+
+footer p {
+  margin: 0;
+}
+
+/* Links */
+
+a {
+  color: #007bff;
+}
+
+a:hover {
+  color: #0056b3;
+}
+
+/* Additional Styles */
+
+/* Style for clickable links in the main section */
+main a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+main a:hover {
+  color: #0056b3;
+}
+
+/* Style for the login and register headings */
+h2.login,
+h2.register {
+  text-align: right;
+}
+
+h2.login a,
+h2.register a {
+  color: #fff;
+  background-color: #333;
+  padding: 8px 16px;
+  border-radius: 4px;
+  text-decoration: none;
+}
+
+h2.login a:hover,
+h2.register a:hover {
+  background-color: #555;
+}

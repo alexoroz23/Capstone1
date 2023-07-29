@@ -1,4 +1,5 @@
 from flask_sqlalchemy import SQLAlchemy
+from werkzeug.security import generate_password_hash, check_password_hash
 
 db = SQLAlchemy()
 
@@ -6,8 +7,14 @@ class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(100), unique=True, nullable=False)
     email = db.Column(db.String(100), unique=True, nullable=False)
-    password = db.Column(db.String(100), nullable=False)
+    password_hash = db.Column(db.String(100), nullable=False)
     registration_date = db.Column(db.String(100), nullable=True)
+
+    def set_password(self, password):
+        self.password_hash = generate_password_hash(password)
+
+    def check_password(self, password):
+        return check_password_hash(self.password_hash, password)
 
 class Artist(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -20,23 +27,21 @@ class Song(db.Model):
     artist_id = db.Column(db.Integer, db.ForeignKey('artist.id'), nullable=False)
     artist = db.relationship('Artist', backref=db.backref('songs', lazy=True))
 
-class Recommendation(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
-    user = db.relationship('User', backref=db.backref('recommendations', lazy=True))
-    artist_id = db.Column(db.Integer, db.ForeignKey('artist.id'), nullable=False)
-    artist = db.relationship('Artist', backref=db.backref('recommendations', lazy=True))
-    song_id = db.Column(db.Integer, db.ForeignKey('song.id'), nullable=False)
-    song = db.relationship('Song', backref=db.backref('recommendations', lazy=True))
-    score = db.Column(db.Integer, nullable=False)
+    def __init__(self, title, artist):
+        self.title = title
+        self.artist = artist
 
-    @staticmethod
-    def create_recommendation(user_id, artist_id, song_id, score):
-        recommendation = Recommendation(
-            user_id=user_id,
-            artist_id=artist_id,
-            song_id=song_id,
-            score=score
-        )
-        db.session.add(recommendation)
-        db.session.commit()
+def get_artist_songs(artist_name):
+    artist = Artist.query.filter_by(name=artist_name).first()
+    if artist:
+        songs = Song.query.filter_by(artist_id=artist.id).all()
+        return songs
+    else:
+        return []
+
+def create_user(username, email, password):
+    # create a new user account
+    user = User(username=username, email=email)
+    user.set_password(password)
+    db.session.add(user)
+    db.session.commit()

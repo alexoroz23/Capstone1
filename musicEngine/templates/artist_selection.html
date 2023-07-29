@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Music Discovery App</title>
+    <title>Artist Selection</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
@@ -12,23 +12,21 @@
         <h2>Search for an Artist</h2>
         <form action="{{ url_for('search_artist') }}" method="POST">
             <label for="artist_name">Artist Name:</label>
-            <input type="text" name="artist_name" id="artist_name" required>
+            <input type="text" id="artist_name" name="artist_name" required>
             <input type="submit" value="Search">
         </form>
 
-        {% if songs %}
-            <h2>{{ artist_name }}'s Songs</h2>
+        <h2>Results:</h2>
+        {% if artist %}
+            <h3>{{ artist.name }}</h3>
             <ul>
                 {% for song in songs %}
-                    <li>{{ song.title }}</li>
+                    <li>{{ song.name }}</li>
                 {% endfor %}
             </ul>
-        {% elif artist_not_found %}
-            <p>No artist with the name "{{ artist_name }}" was found.</p>
+        {% else %}
+            <p>No artist selected yet.</p>
         {% endif %}
-
-        <h2><a href="{{ url_for('login') }}">Login</a></h2>
-        <h2><a href="{{ url_for('register') }}">Register</a></h2>
     </main>
 </body>
 </html>
