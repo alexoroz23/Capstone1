@@ -6,36 +6,37 @@ body {
   padding: 0;
   background-color: #212121;
   color: #FFFFFF;
+  font-size: 16px;
 }
 
 .container {
-  max-width: 960px;
+  max-width: 60rem;
   margin: 0 auto;
-  padding: 20px;
+  padding: 1.25rem; 
 }
 
 /* Header */
 
 header {
   background-color: #1DB954;
-  padding: 20px;
+  padding: 1.25rem; 
   color: #121212;
 }
 
 header h1 {
   margin: 0;
-  font-size: 24px;
+  font-size: 1.5rem; 
 }
 
 /* Forms */
 
 form {
-  margin-bottom: 20px;
+  margin-bottom: 1.25rem;
 }
 
 form label {
   display: block;
-  margin-bottom: 5px;
+  margin-bottom: 0.3125rem; 
   font-weight: bold;
 }
 
@@ -43,19 +44,19 @@ form input[type="text"],
 form input[type="password"],
 form select {
   width: 100%;
-  padding: 8px;
-  margin-bottom: 10px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
+  padding: 0.5rem; 
+  margin-bottom: 0.625rem; 
+  border: 0.0625rem solid #ccc; 
+  border-radius: 0.25rem; 
   box-sizing: border-box;
 }
 
 form input[type="submit"] {
-  padding: 10px 20px;
+  padding: 0.625rem 1.25rem; 
   background-color: #333;
   color: #fff;
   border: none;
-  border-radius: 4px;
+  border-radius: 0.25rem; 
   cursor: pointer;
 }
 
@@ -73,21 +74,21 @@ form input[type="submit"]:hover {
 
 .recommendation {
   background-color: #fff;
-  padding: 20px;
-  margin-bottom: 20px;
-  border-radius: 4px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 1.25rem; 
+  margin-bottom: 1.25rem;
+  border-radius: 0.25rem; 
+  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.1);
 }
 
 .recommendation h2 {
   margin: 0;
-  font-size: 20px;
+  font-size: 1.25rem; 
   color: #333;
 }
 
 .recommendation p {
-  margin: 10px 0;
-  font-size: 16px;
+  margin: 0.625rem 0; 
+  font-size: 1rem; 
   color: #666;
 }
 
@@ -95,6 +96,7 @@ form input[type="submit"]:hover {
 
 a {
   color: #FFFFFF;
+  text-decoration: none;
 }
 
 a:hover {
@@ -108,4 +110,12 @@ main a {
 
 main a:hover {
   color: #1ed760;
+}
+
+header a {
+  color: #121212; /* Set initial color for header anchor */
+}
+
+header a:hover {
+  color: #FFFFFF; /* Change color on hover for header anchor */
 }
